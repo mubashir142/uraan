@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uraan Controller Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #8B4543;
+            --secondary-color: #6D3534;
+            --background-color: #4A3838;
+            --text-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .sign-in {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .dashboard {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .card-content {
+            color: #e0e0e0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .action-button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .action-button:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Uraan</div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Projects</a>
+            <a href="#">Users</a>
+            <a href="#">Settings</a>
+            <a href="#" class="sign-in">Sign Out</a>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3>User Management</h3>
+            <div class="card-content">
+                <p>Manage user accounts and roles</p>
+                <div class="stats">
+                    <span>Active Users: 245</span>
+                    <span>Roles: 6</span>
+                </div>
+                <button class="action-button">Manage Users</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Project Oversight</h3>
+            <div class="card-content">
+                <p>Monitor and manage projects</p>
+                <div class="stats">
+                    <span>Active: 32</span>
+                    <span>Pending: 12</span>
+                </div>
+                <button class="action-button">View Projects</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Activity Logs</h3>
+            <div class="card-content">
+                <p>System-wide activity monitoring</p>
+                <div class="stats">
+                    <span>Today: 156</span>
+                    <span>Alerts: 3</span>
+                </div>
+                <button class="action-button">View Logs</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Content Moderation</h3>
+            <div class="card-content">
+                <p>Review and manage content</p>
+                <div class="stats">
+                    <span>Flagged: 8</span>
+                    <span>Pending: 5</span>
+                </div>
+                <button class="action-button">Moderate</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>System Configuration</h3>
+            <div class="card-content">
+                <p>Manage system settings</p>
+                <div class="stats">
+                    <span>Last Backup: 2h ago</span>
+                    <span>Status: Active</span>
+                </div>
+                <button class="action-button">Configure</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Analytics</h3>
+            <div class="card-content">
+                <p>View insights and reports</p>
+                <div class="stats">
+                    <span>Reports: 15</span>
+                    <span>Updates: Daily</span>
+                </div>
+                <button class="action-button">View Reports</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Dashboard Customization</h3>
+            <div class="card-content">
+                <p>Personalize your interface</p>
+                <div class="stats">
+                    <span>Widgets: 8</span>
+                    <span>Layout: Grid</span>
+                </div>
+                <button class="action-button">Customize</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Audit & Compliance</h3>
+            <div class="card-content">
+                <p>Monitor system compliance</p>
+                <div class="stats">
+                    <span>Status: Compliant</span>
+                    <span>Last Check: 1h ago</span>
+                </div>
+                <button class="action-button">Run Audit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

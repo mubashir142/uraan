@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uraan Project Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #c7837d 0%, #4a030f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgb(239, 199, 199);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .role-specific-fields {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .role-specific-fields.active {
+            display: block;
+        }
+
+        button {
+            background: #020f17;
+            color: rgb(223, 222, 209);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .password-requirements {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            .form-header h1 {
+                font-size: 24px;
+            }
+
+            input, select, button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Uraan Project Registration</h1>
+            <p>Create your account to get started</p>
+        </div>
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="role">Select Role*</label>
+                <select id="role" required>
+                    <option value="">Choose a role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address*</label>
+                <input type="email" id="email" required>
+                <div class="error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" id="password" required>
+                <div class="password-requirements">
+                    Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fullName">Full Name*</label>
+                <input type="text" id="fullName" required>
+            </div>
+
+            <!-- Student-specific fields -->
+            <div class="role-specific-fields" id="studentFields">
+                <div class="form-group">
+                    <label for="studentId">Student ID*</label>
+                    <input type="text" id="studentId">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department*</label>
+                    <select id="department">
+                        <option value="">Select Department</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="ee">Electrical Engineering</option>
+                        <option value="me">Mechanical Engineering</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="semester">Semester*</label>
+                    <input type="number" id="semester" min="1" max="8">
+                </div>
+            </div>
+
+            <!-- Teacher-specific fields -->
+            <div class="role-specific-fields" id="teacherFields">
+                <div class="form-group">
+                    <label for="employeeId">Employee ID*</label>
+                    <input type="text" id="employeeId">
+                </div>
+                <div class="form-group">
+                    <label for="designation">Designation*</label>
+                    <select id="designation">
+                        <option value="">Select Designation</option>
+                        <option value="professor">Professor</option>
+                        <option value="associate">Associate Professor</option>
+                        <option value="assistant">Assistant Professor</option>
+                        <option value="lecturer">Lecturer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">Specialization*</label>
+                    <input type="text" id="specialization">
+                </div>
+            </div>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('role').addEventListener('change', function() {
+            const studentFields = document.getElementById('studentFields');
+            const teacherFields = document.getElementById('teacherFields');
+            
+            if (this.value === 'student') {
+                studentFields.classList.add('active');
+                teacherFields.classList.remove('active');
+            } else if (this.value === 'teacher') {
+                teacherFields.classList.add('active');
+                studentFields.classList.remove('active');
+            } else {
+                studentFields.classList.remove('active');
+                teacherFields.classList.remove('active');
+            }
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form validation and submission logic here
+            alert('Registration form submitted! (Demo purposes only)');
+        });
+    </script>
+</body>
+</html>

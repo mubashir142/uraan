@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #8a303079;
+            color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #a03939;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .profile-icon {
+            background-color: rgb(105, 28, 28);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: rgba(139, 0, 0, 0.2);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .stat-card h3 {
+            color: #0a0000;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #9a3131;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background-color: rgba(139, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .nav-item {
+            padding: 0.8rem 1rem;
+            margin: 0.3rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(139, 0, 0, 0.3);
+        }
+
+        .nav-item.active {
+            background-color: #8B0000;
+        }
+
+        .projects-section {
+            background-color: rgba(139, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card {
+            background-color: rgba(105, 53, 53, 0.998);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: #c1c0c0;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            white-space: nowrap;
+        }
+
+        .status-pending {
+            background-color: #f0ad4e;
+            color: black;
+        }
+
+        .status-reviewed {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .status-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Student Dashboard</h1>
+        <div class="profile-icon">S</div>
+    </header>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Active Projects</h3>
+                <div class="number">4</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Feedback</h3>
+                <div class="number">2</div>
+            </div>
+            <div class="stat-card">
+                <h3>Completed Projects</h3>
+                <div class="number">8</div>
+            </div>
+            <div class="stat-card">
+                <h3>Upcoming Deadlines</h3>
+                <div class="number">3</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <nav class="sidebar">
+                <div class="nav-item active">Overview</div>
+                <div class="nav-item">Projects</div>
+                <div class="nav-item">Feedback</div>
+                <div class="nav-item">Progress Tracking</div>
+                <div class="nav-item">Communication</div>
+                <div class="nav-item">Resources</div>
+                <div class="nav-item">Settings</div>
+            </nav>
+
+            <main class="projects-section">
+                <input type="text" placeholder="Search projects..." class="search-bar">
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Web Development Final Project</h3>
+                        <p>Due: Nov 15, 2024</p>
+                    </div>
+                    <span class="status-badge status-pending">Pending Review</span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Mobile App Design</h3>
+                        <p>Due: Nov 20, 2024</p>
+                    </div>
+                    <span class="status-badge status-reviewed">Reviewed</span>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Database Architecture Project</h3>
+                        <p>Due: Dec 1, 2024</p>
+                    </div>
+                    <span class="status-badge status-pending">Pending Review</span>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

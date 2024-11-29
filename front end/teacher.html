@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2d2424;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #752424;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #933;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: rgba(117, 36, 36, 0.2);
+            border: 1px solid rgba(117, 36, 36, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .stat-title {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background-color: rgba(117, 36, 36, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-item:hover {
+            background-color: rgba(117, 36, 36, 0.5);
+        }
+
+        .sidebar-item.active {
+            background-color: #752424;
+        }
+
+        .main-content {
+            background-color: rgba(117, 36, 36, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #3d3131;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .project-card {
+            background-color: rgba(61, 49, 49, 0.5);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+        }
+
+        .status-pending {
+            background-color: #b7791f;
+        }
+
+        .status-reviewed {
+            background-color: #2f855a;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-title">Teacher Dashboard</div>
+            <div class="nav-profile">
+                <div class="profile-circle">T</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">Total Projects</div>
+                <div class="stat-value">45</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Pending Feedback</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Active Students</div>
+                <div class="stat-value">89</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Upcoming Deadlines</div>
+                <div class="stat-value">5</div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-item active">Overview</div>
+                <div class="sidebar-item">Projects</div>
+                <div class="sidebar-item">Feedback</div>
+                <div class="sidebar-item">Progress Tracking</div>
+                <div class="sidebar-item">Communication</div>
+                <div class="sidebar-item">Reports</div>
+                <div class="sidebar-item">Calendar</div>
+                <div class="sidebar-item">Resources</div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <input type="text" class="search-bar" placeholder="Search projects...">
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Web Development Final Project</h3>
+                            <p style="color: #999; font-size: 0.875rem;">Submitted by: John Doe</p>
+                        </div>
+                        <span class="status-badge status-pending">Pending Review</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Mobile App Design</h3>
+                            <p style="color: #999; font-size: 0.875rem;">Submitted by: Jane Smith</p>
+                        </div>
+                        <span class="status-badge status-reviewed">Reviewed</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Database Architecture Project</h3>
+                            <p style="color: #999; font-size: 0.875rem;">Submitted by: Mike Johnson</p>
+                        </div>
+                        <span class="status-badge status-pending">Pending Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
